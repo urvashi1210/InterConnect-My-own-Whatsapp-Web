@@ -54,8 +54,9 @@ const dialogStyle={
 const LoginDialog=()=>{
 
     const onLoginSuccess=(res)=>{
-        const decoded=jwt_decode(res.credentials);
-        console.log(decoded);
+        // console.log(res);
+        const decoded=jwt_decode(res.credential);
+        // console.log(decoded);
     }
 
     const onLoginError=(res)=>{
@@ -66,6 +67,7 @@ const LoginDialog=()=>{
        <Dialog
             open={true}
             PaperProps={{sx:dialogStyle}}
+            hideBackdrop={true}
             >
             <Component>
                 <Container>
