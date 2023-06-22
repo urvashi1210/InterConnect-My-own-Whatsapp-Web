@@ -1,4 +1,10 @@
+import {useContext,useState,useEffect} from 'react';
+
 import { Box, styled } from '@mui/material';
+
+import { AccountContext } from '../../../context/AccountProvider.jsx';
+
+import { newMessage,getMessages } from '../../../service/api.js';
 
 //components
 import Footer from './Footer.jsx'
@@ -14,13 +20,56 @@ height:80vh;
 overflow-y:scroll;
 `;
 
-const Messages=()=>{
+const Messages=({person,conversation})=>{
+
+    const [value,setValue]=useState('');
+
+    const [messages,setMessages]=useState([]);
+
+    useEffect(()=>{
+        const getMessageDetails=async()=>{
+            let data=await getMessages(conversation._id);
+            console.log(data);
+            setMessages(data);
+        }
+
+        conversation._id&&getMessageDetails();
+
+    },[person._id,conversation._id]);
+
+    const {account}=useContext(AccountContext);
+
+    const sendText=async(e)=>{
+        console.log(e);
+        const code=e.keyCode||e.which;
+        if(code===13){
+           let message={
+            senderId:account.sub,
+            receiverId:person.sub,
+            ConversationId:conversation._id,
+            type:'text',
+            text:value
+           } 
+           await newMessage(message);
+           console.log('messages.jsx works fine')
+           setValue('');
+        }
+    }
+
     return(
        <Wrapper>
             <Component>
+            {
+                messages&&messages.map(message=>{
 
+                })
+            }
             </Component>
-            <Footer/>
+            <Footer 
+            sendText={sendText}
+            value={value}
+            setValue={setValue}
+            />
        </Wrapper>
     )
 }

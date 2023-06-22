@@ -1,17 +1,21 @@
-import { Box } from "@mui/material";
+import { useState } from 'react';
+
+import { Box } from '@mui/material';
 
 //components
-import Header from "./Header"
-import Search from "./Search";
-import Conversation from "./Conversation";
+import Header from './Header';
+import Search from './Search';
+import Conversation from './Conversation';
 
-const Menu=()=>{
-    return(
-       <Box>
-        <Header/>
-        <Search/>
-        <Conversation/>
-       </Box> 
+const Menu = () => {
+    const [text, setText] = useState('');
+    
+    return (
+        <Box>
+            <Header/>
+            <Search setText={setText} />
+            <Conversation text={text} />
+        </Box>
     )
 }
 

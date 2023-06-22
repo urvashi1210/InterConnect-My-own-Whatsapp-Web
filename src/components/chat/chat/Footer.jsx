@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 
 import { EmojiEmotions, AttachFile, Mic } from '@mui/icons-material';
 import { Box, styled, InputBase } from '@mui/material';
@@ -38,7 +38,9 @@ const ClipIcon = styled(AttachFile)`
 `;
 
 
-const Footer = ({ sendText, value, setValue, setFile, file, setImage }) => {
+const Footer = ({ sendText, value,setValue, setFile, file, setImage }) => {
+
+
 
     // useEffect(() => {
     //     const getImage = async () => {
@@ -81,7 +83,7 @@ const Footer = ({ sendText, value, setValue, setFile, file, setImage }) => {
                     value={value}
                 />
             </Search>
-            <Mic />
+            <Mic/>
         </Container>
     )
 }

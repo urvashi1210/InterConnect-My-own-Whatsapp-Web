@@ -4,7 +4,7 @@ import { getUsers } from "../../../service/api";
 import { AccountContext } from '../../../context/AccountProvider';
 import Convo from "./Convo";
 
-const Conversations = () => {
+const Conversations = ({text}) => {
     const Component = styled(Box)`
         height: 81vh;
         overflow: overlay;
@@ -22,10 +22,11 @@ const Conversations = () => {
     useEffect(() => {
         const fetchData = async () => {
             let res = await getUsers();
-            setUsers(res);
+            const filteredData=res.filter(user=>user.name.toLowerCase().includes(text.toLowerCase()));
+            setUsers(filteredData);
         };
         fetchData();
-    }, []);
+    }, [text]);
 
     return (
         <Component>
