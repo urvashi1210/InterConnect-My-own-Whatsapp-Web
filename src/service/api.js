@@ -5,6 +5,7 @@ const url='http://localhost:8000';
 export const addUser=async (data)=>{
     try{
     let res=await axios.post(`${url}/add`,data);
+    console.log("addUser api : ",res.data);
     return res.data;
     }catch(error){
     console.log('Error with addUser API',error.message);
@@ -14,7 +15,7 @@ export const addUser=async (data)=>{
 export const getUsers=async()=>{
    try{
     let res=await axios.get(`${url}/users`);
-    console.log(res);
+    console.log("getUsers api : ",res.data);
     return res.data;
    }catch(error){
     console.log(`Error while calling getUsers api`,error.message);
@@ -24,6 +25,7 @@ export const getUsers=async()=>{
 export const setConversation=async(data)=>{
     try{
         await axios.post(`${url}/conversation/add`,data);
+        console.log('setConversation api works fine')
     }catch(error){
         console.log('Error while calling setConversation api',error.message);
     }
@@ -32,7 +34,8 @@ export const setConversation=async(data)=>{
 export const getConversation=async(data)=>{
     try{
        let res= await axios.post(`${url}/conversation/get`,data);
-        return res.data;
+       console.log("getConvo api : ",res.data); 
+       return res.data;
     }catch(error){
         console.log('Error while calling setConversation api',error.message);
     }
@@ -41,15 +44,16 @@ export const getConversation=async(data)=>{
 export const getMessages = async (id) => {
     try {
         let response = await axios.get(`${url}/message/get/${id}`);
-        return response.data
+        console.log("getMessages api : ",response.data)
+        return response.data;
     } catch (error) {
-        console.log('Error while calling getMessages API ', error);
+        console.log('Error while calling getMessages API ', error.message);
     }
 }
 
 export const newMessage = async (data) => {
     try {
-        console.log('api works fine')
+        console.log('newMessage api works fine')
         await axios.post(`${url}/message/add`, data);
     } catch (error) {
         console.log('Error while calling new message API ', error);

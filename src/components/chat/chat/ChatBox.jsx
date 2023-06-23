@@ -20,7 +20,7 @@ const ChatBox = () => {
             }
 
      getConversationDetails();   
-},[account.sub, person.sub]);
+},[person.sub]);
 
     return (
         <Box style={{height:'75%'}}>
