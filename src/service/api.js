@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const url='http://localhost:8000';
 
+
 export const addUser=async (data)=>{
     try{
     let res=await axios.post(`${url}/add`,data);
@@ -41,15 +42,20 @@ export const getConversation=async(data)=>{
     }
 }
 
+
 export const getMessages = async (id) => {
     try {
-        let response = await axios.get(`${url}/message/get/${id}`);
+        
+        let response = await axios.get(`${url}/message/get/:id`);
+        console.log("hello");
+        console.log(id);
         console.log("getMessages api : ",response.data)
         return response.data;
     } catch (error) {
         console.log('Error while calling getMessages API ', error.message);
     }
 }
+
 
 export const newMessage = async (data) => {
     try {
@@ -66,4 +72,4 @@ export const newMessage = async (data) => {
 //     } catch (error) {
 //         console.log('Error while calling newConversations API ', error);
 //     }
-// }
+// }                        

@@ -51,7 +51,7 @@ const Messages=({person,conversation,message})=>{
            let message={
             senderId:account.sub,
             receiverId:person.sub,
-            ConversationId:conversation._id,
+            conversationId:conversation._id,
             type:'text',
             text:value
            } 
