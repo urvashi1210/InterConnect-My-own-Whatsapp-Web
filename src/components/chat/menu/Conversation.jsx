@@ -22,7 +22,8 @@ const Conversations = ({text}) => {
     useEffect(() => {
         const fetchData = async () => {
             let res = await getUsers();
-            const filteredData=res.filter(user=>user.name.toLowerCase().includes(text.toLowerCase()));
+            console.log(res);
+           let filteredData=res.filter(user=>user.name.toLowerCase().includes(text.toLowerCase()));
             setUsers(filteredData);
         };
         fetchData();

@@ -3,7 +3,7 @@ import { useEffect,useState } from 'react';
 import { EmojiEmotions, AttachFile, Mic } from '@mui/icons-material';
 import { Box, styled, InputBase } from '@mui/material';
 
-// import { uploadFile } from '../../../service/api';
+import { uploadFile } from '../../../service/api';
 
 const Container = styled(Box)`
     height: 55px;
@@ -38,41 +38,41 @@ const ClipIcon = styled(AttachFile)`
 `;
 
 
-const Footer = ({ sendText, value,setValue, setFile, file, setImage }) => {
+const Footer = ({ sendText, value,setValue, setFile, file,setImage}) => {
 
+    useEffect(() => {
+        const setImage = async () => {
+            if (file) {
+                console.log(file);
+                const data = new FormData();
+                console.log("newform data",data);
+                data.append("name", file.name);
+                data.append("file", file);
+                console.log("form data:",data);
+                const response = await uploadFile(data);
+               response&& setImage(response.data);
+            }
+        }
+        setImage();
+    }, [file])
 
-
-    // useEffect(() => {
-    //     const getImage = async () => {
-    //         if (file) {
-    //             const data = new FormData();
-    //             data.append("name", file.name);
-    //             data.append("file", file);
-
-    //             const response = await uploadFile(data);
-    //             setImage(response.data);
-    //         }
-    //     }
-    //     getImage();
-    // }, [file])
-
-    // const onFileChange = (e) => {
-    //     setValue(e.target.files[0].name);
-    //     setFile(e.target.files[0]);
-    // }
+    const onFileChange = (e) => {
+        setValue(e.target.files[0].name);
+        setFile(e.target.files[0]);
+    }
 
     return (
         <Container>
             <EmojiEmotions />
-            {/* <label htmlFor="fileInput"> */}
+            <label htmlFor="fileInput">
                 <ClipIcon />
-            {/* </label> */}
-            {/* <input
+            </label>
+            <input
                 type='file'
                 id="fileInput"
                 style={{ display: 'none' }}
                 onChange={(e) => onFileChange(e)}
-            /> */}
+            />
 
             <Search>
                 <InputField

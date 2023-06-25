@@ -31,7 +31,8 @@ const Messages=({person,conversation,message})=>{
 
     const [messages,setMessages]=useState([]);
     const [newMessageFlag,setNewMessageFlag]=useState(false);
-
+    const [file,setFile]=useState();
+    const [image,setImage]=useState(''); 
 
     useEffect(() => {
         const getMessageDetails = async () => {
@@ -48,17 +49,30 @@ const Messages=({person,conversation,message})=>{
         console.log(e);
         const code=e.keyCode||e.which;
         if(code===13){
-           let message={
+            let message;
+            if(!file){
+                 message={
+                    senderId:account.sub,
+                    receiverId:person.sub,
+                    conversationId:conversation._id,
+                    type:'text',
+                    text:value
+                   } 
+            }else{
+           message={
             senderId:account.sub,
             receiverId:person.sub,
             conversationId:conversation._id,
-            type:'text',
-            text:value
+            type:'file',
+            text:image
            } 
+        }
            await newMessage(message);
            console.log(message);
            console.log('messages.jsx works fine')
            setValue('');
+           setFile('');
+           setImage('');
            setNewMessageFlag(prev=>!prev)
         }
     }
@@ -78,6 +92,9 @@ const Messages=({person,conversation,message})=>{
             sendText={sendText}
             value={value}
             setValue={setValue}
+            file={file}
+            setFile={setFile}
+            setImage={setImage}
             />
        </Wrapper>
     )

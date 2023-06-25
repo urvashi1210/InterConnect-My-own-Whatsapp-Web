@@ -46,7 +46,7 @@ export const getConversation=async(data)=>{
 export const getMessages = async (id) => {
     try {
         
-        let response = await axios.get(`${url}/message/get/:id`);
+        let response = await axios.get(`${url}/message/get/${id}`);
         console.log("hello");
         console.log(id);
         console.log("getMessages api : ",response.data)
@@ -66,10 +66,11 @@ export const newMessage = async (data) => {
     }
 }
 
-// export const uploadFile = async (data) => {
-//     try {
-//         return await axios.post(`${url}/file/upload`, data);
-//     } catch (error) {
-//         console.log('Error while calling newConversations API ', error);
-//     }
-// }                        
+export const uploadFile = async (data) => {
+    try {
+        return await axios.post(`${url}/file/upload`, data);
+    } catch (error) {
+        console.log(data);
+        console.log('Error while uploadFile API ', error.message);
+    }
+}                        
