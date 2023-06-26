@@ -1,10 +1,11 @@
-import {useContext,useState,useEffect} from 'react';
+import {useContext,useState,useEffect,useRef} from 'react';
 
 import { Box, styled } from '@mui/material';
 
-import { AccountContext } from '../../../context/AccountProvider.jsx';
-
 import { newMessage,getMessages } from '../../../service/api.js';
+
+import { AccountContext} from  '../../../context/AccountProvider.jsx';
+
 
 //components
 import Footer from './Footer.jsx'
@@ -30,20 +31,41 @@ const Messages=({person,conversation,message})=>{
     const [value,setValue]=useState('');
 
     const [messages,setMessages]=useState([]);
-    const [newMessageFlag,setNewMessageFlag]=useState(false);
+    // const [newMessageFlag,setNewMessageFlag]=useState(false);
     const [file,setFile]=useState();
     const [image,setImage]=useState(''); 
+    const [incomingMessage,setIncomingMessage]=useState(null);
+
+    const scrollRef=useRef();
+
+    const {account,socket,newMessageFlag,setNewMessageFlag}=useContext(AccountContext);
+
+    useEffect(()=>{
+        socket.current.on('getMessage',data=>{
+            setIncomingMessage({
+                ...data,
+                createdAt:Date.now()
+            })
+        })
+    },[])
+    //now msgs are being sent using socket and not node so timestamp not added as it doesnt go to MessageModel
 
     useEffect(() => {
         const getMessageDetails = async () => {
             let data = await getMessages(conversation?._id);
             setMessages(data);
         }
-        getMessageDetails();
+        conversation._id && getMessageDetails();
     }, [conversation?._id, person._id, newMessageFlag]);
       
+    useEffect(()=>{
+        scrollRef.current?.scrollIntoView({transition:'smooth'})
+    },[messages])
 
-    const {account}=useContext(AccountContext);
+    useEffect(()=>{
+        incomingMessage&&conversation?.members?.includes(incomingMessage.senderId)&&
+        setMessages(prev=>[...prev,incomingMessage]);
+    },[incomingMessage,conversation])
 
     const sendText=async(e)=>{
         console.log(e);
@@ -67,6 +89,9 @@ const Messages=({person,conversation,message})=>{
             text:image
            } 
         }
+
+            socket.current.emit('sendMessage',message);//real time sending of message
+
            await newMessage(message);
            console.log(message);
            console.log('messages.jsx works fine')
@@ -82,7 +107,7 @@ const Messages=({person,conversation,message})=>{
             <Component>
             {
                 messages&&messages.map((message)=>(
-                    <Container>
+                    <Container ref={scrollRef}>
                           <Message message={message}/>
                     </Container>
                 ))

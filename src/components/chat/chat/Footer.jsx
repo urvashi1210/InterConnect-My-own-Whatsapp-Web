@@ -41,7 +41,7 @@ const ClipIcon = styled(AttachFile)`
 const Footer = ({ sendText, value,setValue, setFile, file,setImage}) => {
 
     useEffect(() => {
-        const setImage = async () => {
+        const uploadImage = async () => {
             if (file) {
                 console.log(file);
                 const data = new FormData();
@@ -53,8 +53,8 @@ const Footer = ({ sendText, value,setValue, setFile, file,setImage}) => {
                response&& setImage(response.data);
             }
         }
-        setImage();
-    }, [file])
+        uploadImage();
+    }, [file,setImage])
 
     const onFileChange = (e) => {
         setValue(e.target.files[0].name);
