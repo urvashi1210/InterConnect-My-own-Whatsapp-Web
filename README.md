@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+**InterConnect - A Seamless Chatting Experience** 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+InterConnect is a powerful chatting application that offers a seamless communication experience. It is a clone of WhatsApp Web, featuring a ReactJS frontend with MaterialUI and a NodeJS backend with ExpressJS. With Google OAuth integration, real-time messaging, and robust file sharing capabilities, InterConnect ensures a secure and efficient way to connect with others.
 
-## Available Scripts
+**Features**
 
-In the project directory, you can run:
+-Real-time messaging: Engage in instant conversations with registered users.
 
-### `npm start`
+-Seamless file sharing: Share images, PDFs, Word documents, and more.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-Google OAuth login & signup: Convenient and secure authentication.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-Fast and reliable: Leveraging Socket.io for real-time communication.
 
-### `npm test`
+**Get Started
+To try InterConnect:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-Clone the repository.
 
-### `npm run build`
+-Install frontend and backend dependencies.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-Configure Google OAuth credentials.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-Start the frontend and backend servers.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-Access InterConnect in your browser at http://localhost:3000/.
 
-### `npm run eject`
+**Visit Our Website**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+For more information and a hands-on experience, visit my website at .
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Contact Us**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+For any inquiries or assistance, please reach out to me at https://www.linkedin.com/in/urvashi-shukla/.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Enjoy the power of connection with InterConnect!
