@@ -4,7 +4,7 @@
   "description": "**InterConnect - A Seamless Chatting Experience**",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm i && cd ./server/ && npm i && npm start \" \"cd ./client/ && npm i && npm start \" \" cd ./socket/ && npm i  && npm start\"",
+    "start": "npm i && concurrently \"npm i && cd ./server/ && npm i && npm start \" \"cd ./client/ && npm i && npm start \" \" cd ./socket/ && npm i  && npm start\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build":"cd ./client/ && npm i && npm run build"
   },
