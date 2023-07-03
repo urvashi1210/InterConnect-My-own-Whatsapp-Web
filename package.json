@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cd ./server && node index.js",
+    "build":"cd ./client && npm i",
     "dev":"cd ./server && npm i ",
     "dev2":"cd ./socket && npm i",
     "start2":"cd ./socket && node index.js"
