@@ -11,7 +11,7 @@ const app=express();
 
 app.use(
     cors({
-      origin: ['http://localhost:3000','http://localhost:8000',"https://InterConnect--Whatsapp-Web-Clone.onrender.com"]
+      origin: ['http://localhost:3000','http://localhost:8000','http://localhost:9000',"https://InterConnect--Whatsapp-Web-Clone.onrender.com","https://InterConnect--Whatsapp-Web-Clone-socket.onrender.com"]
     })
   );
 
