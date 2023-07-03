@@ -1,9 +1,13 @@
 import {Server} from 'socket.io';
 
+// const io=new Server(9000,{
+//     cors:{
+//         origin:['http://localhost:3000','https://interconnect-whatsapp-web-clone.onrender.com/']
+//     }
+// })
+
 const io=new Server(9000,{
-    cors:{
-        origin:['http://localhost:3000','https://interconnect-whatsapp-web-clone.onrender.com/']
-    }
+    cors
 })
 
 let users=[];
