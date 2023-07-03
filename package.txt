@@ -1,14 +1,14 @@
 {
-  "name": "interconnect-my-own-whatsapp-web",
-  "version": "1.0.0",
-  "description": "**InterConnect - A Seamless Chatting Experience**",
-  "main": "index.js",
+  "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.4"
+  },
   "scripts": {
     "start": "concurrently \"npm i && cd ./server/ && npm i && npm start \" \"cd ./client/ && npm i && npm start \" \" cd ./socket/ && npm i  && npm start\"",
+    "build":"cd ./client/ && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.2.0"
   }

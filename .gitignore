@@ -4,6 +4,17 @@
 
 # dependencies
 /node_modules
+
+# Ignore node_modules in folder1
+client/node_modules/
+
+# Ignore node_modules in folder2
+server/node_modules/
+
+# Ignore node_modules in folder3
+socket/node_modules/
+
+
 /.pnp
 .pnp.js
 
