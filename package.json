@@ -4,10 +4,8 @@
   "description": "**InterConnect - A Seamless Chatting Experience**",
   "main": "index.js",
   "scripts": {
-    "start": "npm install concurrently --save-dev && concurrently \"npm i && cd ./server/ && npm i && npm start \" \"cd ./client/ && npm i && npm start \" \" cd ./socket/ && npm i  && npm start\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"cd ./client/ && npm i && npm run build "
-    
+    "start": "cd ./server && node index.js",
+    "dev":"cd ./server && npm i "
   },
   "author": "",
   "license": "ISC",
