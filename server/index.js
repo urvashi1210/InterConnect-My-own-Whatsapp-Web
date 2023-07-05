@@ -59,7 +59,10 @@ import Route from './routes/route.js';
 
 const app = express();
 
-app.use(cors());
+app.use(cors( {
+  origin: '*',
+  methods: ['GET', 'POST'],
+}));
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://interconnect-whatsapp-web-clone.onrender.com');
@@ -69,12 +72,18 @@ app.use((req, res, next) => {
   next();
 });
 
+
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 Connection(); // Connect before making server i.e. before app.listen()
 
 const PORT = process.env.PORT || 8000;
+
+
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);
