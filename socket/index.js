@@ -103,6 +103,8 @@
 import dotenv from 'dotenv';
 import { Server } from 'socket.io';
 import express from 'express';
+import cors from 'cors';
+
 
 dotenv.config();
 const app = express();
