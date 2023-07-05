@@ -58,7 +58,7 @@ dotenv.config();
 const io = new Server(process.env.PORT || 9000, {
   cors: {
     origin: '*',
-    methods: ['GET', 'POST'],
+    methods: ['GET', 'POST','PUT', 'DELETE'],
   },
 });
 
