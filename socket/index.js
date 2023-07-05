@@ -6,7 +6,7 @@ import {Server} from 'socket.io';
 //     }
 // })
 
-const io = new Server(9000, {
+const io = new Server(process.env.PORT || 9000, {
     cors: {
       origin: '*',
       methods: ['GET', 'POST']
