@@ -47,4 +47,4 @@ app.listen(PORT, () => {
 });
 
 
-app.use('/', Route);
+app.use('https://interconnect-whatsapp-web-clone-api.onrender.com', Route);
