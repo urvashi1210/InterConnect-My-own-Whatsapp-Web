@@ -124,6 +124,9 @@ app.use((req, res, next) => {
 });
 
 
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
 
 const io = new Server(process.env.PORT || 9000, {
   cors: {
