@@ -107,6 +107,12 @@ import express from 'express';
 dotenv.config();
 const app = express();
 
+
+app.use(cors( {
+  origin: '*',
+  methods: ['GET', 'POST','PUT', 'DELETE'],
+}));
+
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://interconnect-whatsapp-web-clone.onrender.com, https://interconnect-whatsapp-web-clone-api.onrender.com, https://interconnect-whatsapp-web-clone-socket.onrender.com');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -114,6 +120,8 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   next();
 });
+
+
 
 const io = new Server(process.env.PORT || 9000, {
   cors: {
