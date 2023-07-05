@@ -1,7 +1,6 @@
-require('dotenv').config();
-
-
+import dotenv from 'dotenv';
 import {Server} from 'socket.io';
+dotenv.config();
 
 // const io=new Server(9000,{
 //     cors:{
