@@ -49,7 +49,5 @@ const userSchema=mongoose.Schema({
 })
 
 const user=mongoose.model('user',userSchema);
-//the first parameter of mongoose.model is user
-
-
+//the first parameter of mongoose.model is user and second is Schema
 export default user;
