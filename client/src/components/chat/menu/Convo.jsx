@@ -52,7 +52,7 @@ const [message,setMessage,newMessageFlag]=useState({});
 
 useEffect(()=>{
     const getConversationDetails=async()=>{
-       const data= await getConversation({senderId:account.sub,receiverId:user.sub, apiBaseUrl: RENDER_API_URL,});
+       const data= await getConversation({senderId:account.sub,receiverId:user.sub});
         setMessage({text:data?.message,timestamp:data?.updatedAt});
 
     }
@@ -61,7 +61,7 @@ useEffect(()=>{
 
 const getUser=async()=>{
     setPerson(user);
-    await setConversation({senderId:account.sub,receiverId:user.sub, apiBaseUrl: RENDER_API_URL})
+    await setConversation({senderId:account.sub,receiverId:user.sub,})
 }
 
     return(
@@ -78,7 +78,7 @@ const getUser=async()=>{
             }    
             </Container>
         <Box>
-            <Text>{message?.text?.includes('localhost')?'media':message.text}</Text>
+            <Text>{message?.text?.includes(RENDER_API_URL)?'media':message.text}</Text>
         </Box> 
         </Box>
       </Component>
