@@ -139,11 +139,12 @@ const getUsers = (userId) => {
 };
 
 const addUser = (userData, socketId) => {
+  console.log("socketId",socketId);
   !users.some((user) => user.sub === userData.sub) && users.push({ ...userData, socketId });
 };
 
 io.on('connection', (socket) => {
-  console.log('user connected via socket');
+  console.log('user connected via socket on port' );
 
   // Connect
   socket.on('addUsers', (userData) => {
@@ -154,6 +155,7 @@ io.on('connection', (socket) => {
   // Send message
   socket.on('sendMessage', (data) => {
     const user = getUsers(data.receiverId);
+    console.log(user,"user");
     io.to(user.socketId).emit('getMessage', data);
   });
 });

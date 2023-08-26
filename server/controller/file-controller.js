@@ -1,7 +1,13 @@
 import grid from 'gridfs-stream';
 import mongoose from 'mongoose';
 
-const url=`http://localhost:8000`;
+// const url=`http://localhost:8000`;
+
+const url =
+      process.env.NODE_ENV === 'production'
+        ? 'https://interconnect-whatsapp-web-clone-api.onrender.com'
+        : 'http://localhost:8000';
+
 // const url='https://interconnect-whatsapp-web-clone-api.onrender.com';
 
 
