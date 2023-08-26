@@ -82,6 +82,7 @@ app.use(cors());
 
 
 
+
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -95,7 +96,7 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on PORT ${PORT}`);
+  console.log(`Server is running on PORT ${PORT} ,`);
 });
 
 app.use('/', Route);
