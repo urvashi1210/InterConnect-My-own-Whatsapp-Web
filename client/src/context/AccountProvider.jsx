@@ -24,13 +24,13 @@ useEffect(() => {
     // ? 'https://interconnect-my-own-whatsapp-web-socket.onrender.com'
     // : 'ws://localhost:9000';
 
-  const socketURL=`https://interconnect-my-own-whatsapp-web-socket.onrender.com`;
+  const socketURL=`https://Interconnect-whatsapp-web-clone-api.onrender.com`;
     socket.current = io(socketURL);
 
-    return () => {
-      // Clean up the socket connection when the component unmounts
-      socket.current.disconnect();
-    };
+    // return () => {
+    //   // Clean up the socket connection when the component unmounts
+    //   socket.current.disconnect();
+    // };
   }, []);
 
 // useEffect(() => {
