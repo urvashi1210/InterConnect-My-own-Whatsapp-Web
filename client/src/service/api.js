@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// const url='http://localhost:8000';
-const url='https://interconnect-whatsapp-web-clone-api.onrender.com';
+const url='http://localhost:8000';
+// const url='https://interconnect-whatsapp-web-clone-api.onrender.com';
 // const url2 ='https://interconnect-whatsapp-web-clone-socket.onrender.com';
 
 

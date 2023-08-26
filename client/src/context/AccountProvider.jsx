@@ -14,13 +14,13 @@ const [newMessageFlag,setNewMessageFlag]=useState(false);
 
 const socket=useRef();
 
-// useEffect(()=>{
-//     socket.current=io('ws://localhost:9000');//connection established (io function takes your backend's address)
-// },[])
+useEffect(()=>{
+    socket.current=io('ws://localhost:9000');//connection established (io function takes your backend's address)
+},[])
 
-useEffect(() => {
-    socket.current = io('https://interconnect-my-own-whatsapp-web-socket.onrender.com'); // updated socket URL
-  }, []);
+// useEffect(() => {
+//     socket.current = io('https://interconnect-my-own-whatsapp-web-socket.onrender.com'); // updated socket URL
+//   }, []);
 
 //blank array dependency-once 
 

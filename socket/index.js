@@ -110,18 +110,15 @@ dotenv.config();
 const app = express();
 
 
-app.use(cors( {
-  origin: '*',
-  methods: ['GET', 'POST','PUT', 'DELETE'],
-}));
+app.use(cors());
 
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://interconnect-whatsapp-web-clone.onrender.com, https://interconnect-whatsapp-web-clone-api.onrender.com, https://interconnect-whatsapp-web-clone-socket.onrender.com');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader('Access-Control-Allow-Origin', 'https://interconnect-whatsapp-web-clone.onrender.com, https://interconnect-whatsapp-web-clone-api.onrender.com, https://interconnect-whatsapp-web-clone-socket.onrender.com');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+//   res.setHeader('Access-Control-Allow-Credentials', 'true');
+//   next();
+// });
 
 
 app.get('/', (req, res) => {
@@ -160,3 +157,17 @@ io.on('connection', (socket) => {
     io.to(user.socketId).emit('getMessage', data);
   });
 });
+
+// socket.on('sendMessage', (data) => {
+//   const user = getUsers(data.receiverId);
+//   console.log('User:', user);
+  
+//   if (user && user.socketId) {
+//     io.to(user.socketId).emit('getMessage', data);
+//   } else {
+//     console.log(`User with receiverId ${data.receiverId} not found or missing socketId.`);
+//   }
+// });
+
+// })
+
