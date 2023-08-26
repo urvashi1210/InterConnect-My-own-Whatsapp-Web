@@ -7,9 +7,13 @@ import { AccountContext } from '../../../context/AccountProvider';
 import { setConversation, getConversation } from '../../../service/api';
 
 import { formatDate } from '../../../utils/common-utils';
+import dotenv from 'dotenv'
+dotenv.config();
 
 // Replace the localhost URLs with Render-hosted URLs
-const RENDER_API_URL = 'https://interconnect-whatsapp-web-clone-api.onrender.com'; // Update with the correct Render API URL
+const RENDER_API_URL = process.env.NODE_ENV === `production`
+? 'http'
+: 'localhost'
 
 
 const Component=styled(Box)`
