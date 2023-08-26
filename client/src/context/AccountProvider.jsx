@@ -14,9 +14,20 @@ const [newMessageFlag,setNewMessageFlag]=useState(false);
 
 const socket=useRef();
 
-useEffect(()=>{
-    socket.current=io('ws://localhost:9000');//connection established (io function takes your backend's address)
-},[])
+useEffect(() => {
+    // Determine the WebSocket URL based on the current environment
+    const socketURL =
+      process.env.NODE_ENV === 'production'
+        ? 'https://interconnect-my-own-whatsapp-web-socket.onrender.com'
+        : 'ws://localhost:9000';
+
+    socket.current = io(socketURL);
+
+    return () => {
+      // Clean up the socket connection when the component unmounts
+      socket.current.disconnect();
+    };
+  }, []);
 
 // useEffect(() => {
 //     socket.current = io('https://interconnect-my-own-whatsapp-web-socket.onrender.com'); // updated socket URL
