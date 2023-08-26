@@ -18,11 +18,13 @@ const socket=useRef();
 
 useEffect(() => {
     // Determine the WebSocket URL based on the current environment
-    const socketURL =
-    process.env.NODE_ENV === `production`
-    ? 'https://interconnect-my-own-whatsapp-web-socket.onrender.com'
-    : 'ws://localhost:9000';
 
+    // const socketURL =
+    // process.env.NODE_ENV === `production`
+    // ? 'https://interconnect-my-own-whatsapp-web-socket.onrender.com'
+    // : 'ws://localhost:9000';
+
+  const socketURL=`https://interconnect-my-own-whatsapp-web-socket.onrender.com`;
     socket.current = io(socketURL);
 
     return () => {

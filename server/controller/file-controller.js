@@ -5,12 +5,12 @@ dotenv.config();
 
 // const url=`http://localhost:8000`;
 
-const url =
-      process.env.NODE_ENV === 'production'
-        ? 'https://interconnect-whatsapp-web-clone-api.onrender.com'
-        : 'http://localhost:8000';
+// const url =
+//       process.env.NODE_ENV === 'production'
+//         ? 'https://interconnect-whatsapp-web-clone-api.onrender.com'
+//         : 'http://localhost:8000';
 
-// const url='https://interconnect-whatsapp-web-clone-api.onrender.com';
+const url='https://interconnect-whatsapp-web-clone-api.onrender.com';
 
 
 let gfs,gridFsBucket;
