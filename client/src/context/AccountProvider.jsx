@@ -24,7 +24,7 @@ useEffect(() => {
     // ? 'https://interconnect-my-own-whatsapp-web-socket.onrender.com'
     // : 'ws://localhost:9000';
 
-  const socketURL=`https://Interconnect-whatsapp-web-clone-api.onrender.com`;
+  const socketURL=`https://interconnect-whatsapp-web-clone-api.onrender.com`;
     socket.current = io(socketURL);
 
     // return () => {

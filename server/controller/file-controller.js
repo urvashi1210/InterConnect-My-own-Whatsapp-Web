@@ -10,7 +10,7 @@ dotenv.config();
 //         ? 'https://interconnect-whatsapp-web-clone-api.onrender.com'
 //         : 'http://localhost:8000';
 
-const url='https://Interconnect-whatsapp-web-clone-api.onrender.com';
+const url='https://interconnect-whatsapp-web-clone-api.onrender.com';
 
 let gfs,gridFsBucket;
 const conn=mongoose.connection;
