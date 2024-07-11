@@ -16,6 +16,11 @@
 // // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
 
+// Disable 'os' polyfill
+// if (typeof require !== 'undefined') {
+//   require.cache = {};
+// }
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'react-app-polyfill/ie11'; // Import this if you need to support IE11
