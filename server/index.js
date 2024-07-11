@@ -5,15 +5,27 @@ import bodyParser from 'body-parser';
 import Connection from './database/db.js';
 import Route from './routes/route.js';
 
+import dotenv from 'dotenv';
+dotenv.config({ path: '../client/.env' });
+
 const app=express();
 
 // app.use(cors());
 
-app.use(
-    cors({
-      origin: ['http://localhost:3000','http://localhost:8000']
-    })
-  );
+// app.use(
+//     cors({
+//       origin: ['http://localhost:3000','http://localhost:8000']
+//     })
+//   );
+
+
+// app.use(
+//   cors({
+//     origin: ['http://localhost:3000',process.env.REACT_APP_SERVER_URL]
+//   })
+// );
+
+
 
 app.use((req, res, next) => {
     res.setHeader('Cross-Origin-Opener-Policy', 'unsafe-none');

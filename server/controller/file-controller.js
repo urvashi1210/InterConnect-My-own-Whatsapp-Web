@@ -1,7 +1,12 @@
 import grid from 'gridfs-stream';
 import mongoose from 'mongoose';
 
-const url=`http://localhost:8000`;
+import dotenv from 'dotenv';
+dotenv.config({ path: '../client/.env' });
+
+// const url='http://localhost:8000';
+
+const url=process.env.REACT_APP_SERVER_URL;
 
 let gfs,gridFsBucket;
 const conn=mongoose.connection;
