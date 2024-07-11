@@ -25,7 +25,11 @@ const app=express();
 //   })
 // );
 
-
+app.use(
+    cors({
+      origin: [process.env.REACT_APP_CLIENT_URL,process.env.REACT_APP_SERVER_URL]
+    })
+  );
 
 app.use((req, res, next) => {
     res.setHeader('Cross-Origin-Opener-Policy', 'unsafe-none');

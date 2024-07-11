@@ -1,10 +1,25 @@
 import {Server} from 'socket.io';
+import dotenv from 'dotenv';
+dotenv.config({ path: '../client/.env' });
 
-const io=new Server(9000,{
+// const io=new Server(9000,{
+//         cors:{
+//             origin:REACT_APP_CLIENT_URL
+//         }
+//     })
+
+// const io=new Server(9000,{
+//     cors:{
+//         origin:REACT_APP_CLIENT_URL
+//     }
+// })
+
+const io=new Server(process.env.REACT_APP_SOCKET_PORT||9000,{
     cors:{
-        origin:'http://localhost:3000'
+        origin:process.env.REACT_APP_CLIENT_URL
     }
 })
+
 
 let users=[];
 
