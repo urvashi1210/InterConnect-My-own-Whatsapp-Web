@@ -1,6 +1,7 @@
 import {Server} from 'socket.io';
 import dotenv from 'dotenv';
-dotenv.config({ path: '../client/.env' });
+// dotenv.config({ path: '../client/.env' });
+dotenv.config();
 
 // const io=new Server(9000,{
 //         cors:{

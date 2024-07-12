@@ -2,7 +2,9 @@ import grid from 'gridfs-stream';
 import mongoose from 'mongoose';
 
 import dotenv from 'dotenv';
-dotenv.config({ path: '../client/.env' });
+// dotenv.config({ path: '../client/.env' });
+
+dotenv.config();
 
 // const url='http://localhost:8000';
 

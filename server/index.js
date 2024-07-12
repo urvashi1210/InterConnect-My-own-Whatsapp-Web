@@ -6,7 +6,9 @@ import Connection from './database/db.js';
 import Route from './routes/route.js';
 
 import dotenv from 'dotenv';
-dotenv.config({ path: '../client/.env' });
+// dotenv.config({ path: '../client/.env' });
+
+dotenv.config();
 
 const app=express();
 
