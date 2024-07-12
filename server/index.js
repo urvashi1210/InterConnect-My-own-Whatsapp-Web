@@ -47,10 +47,16 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 Connection();//Connect before making server i.e. before app.listen()
 
-const PORT=8000;
+// const PORT=8000;
 
-app.listen(PORT,()=>{
-    console.log(`Server is running on PORT ${PORT}`)
-})
+// app.listen(PORT,()=>{
+//     console.log(`Server is running on PORT ${PORT}`)
+// })
+
+const PORT = process.env.REACT_APP_SERVER_PORT || 8000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on PORT ${PORT}`);
+});
 
 app.use('/', Route);

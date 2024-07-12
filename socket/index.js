@@ -14,7 +14,11 @@ dotenv.config({ path: '../client/.env' });
 //     }
 // })
 
-const io=new Server(process.env.REACT_APP_SOCKET_PORT||9000,{
+const SOCKET_URL = process.env.REACT_APP_SOCKET_URL || 'interconnect-socket';
+const SOCKET_PORT = process.env.REACT_APP_SOCKET_PORT || 9000;
+
+
+const io=new Server(SOCKET_PORT,{
     cors:{
         origin:process.env.REACT_APP_CLIENT_URL
     }
@@ -54,3 +58,5 @@ io.on('connection',(socket)=>{
     //     io.emit('getUsers', users);
     // })
 })
+
+console.log(`Socket server running on ${SOCKET_URL}:${SOCKET_PORT}`);

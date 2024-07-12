@@ -14,10 +14,16 @@ const [newMessageFlag,setNewMessageFlag]=useState(false);
 
 const socket=useRef();
 
-useEffect(()=>{
-    socket.current=io('ws://localhost:9000');//connection established (io function takes your backend's address)
-},[])
-//blank array dependency-once 
+// useEffect(()=>{
+//     socket.current=io('ws://localhost:9000');//connection established (io function takes your backend's address)
+// },[])
+// //blank array dependency-once 
+
+useEffect(() => {
+    const SOCKET_URL = process.env.REACT_APP_SOCKET_URL || 'ws://localhost';
+    const SOCKET_PORT = process.env.REACT_APP_SOCKET_PORT || '9000';
+    socket.current = io(`${SOCKET_URL}:${SOCKET_PORT}`); // connection established (io function takes your backend's address)
+}, []); // blank array dependency-once
 
 return(
     <AccountContext.Provider value={{
